@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface INote {
+export interface INote {
   title: string;
   content: string;
   createdAt: Date;

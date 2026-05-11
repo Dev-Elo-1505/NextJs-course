@@ -5,3 +5,4 @@ Client components are useful for interactivity. they can hurt performance
 To create client components, add "use client" at the top of the file
 
 # Query Parameters
+- use useParams for /shop/1/2
