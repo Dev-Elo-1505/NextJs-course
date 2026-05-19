@@ -1,0 +1,15 @@
+const Company = () => {
+  return (
+    <div className="flex text-white min-h-screen">
+      <div className="w-1/5 bg-blue-900 p-4">
+      <h2 className="text-2xl font-semibold font-serif mb-4">Saidebar</h2>
+      <div className="bg-white text-black rounded px-4 py-2 mb-3">Applications</div>
+      <div className="rounded px-4 py-2 mb-3">Results</div>
+      <div className="rounded px-4 py-2 mb-3">Employee</div>
+      </div>
+      <div className="w-4/5 bg-blue-950 p-4">fullpage</div>
+    </div>
+  );
+};
+
+export default Company;
