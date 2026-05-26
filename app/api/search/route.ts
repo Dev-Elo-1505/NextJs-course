@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({
         success: false,
         status: 400,
-        error: "Limit should be from 1 to 50 "
+        error: "Limit should be from 1 to 50"
     })
     }
 

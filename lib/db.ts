@@ -1,42 +1,11 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error("Please define the MONGODB_URI environment variable");
-}
-
-// Global caching pattern recommended for Next.js in development
-let cached = (global as any).mongoose;
-
-if (!cached) {
-  cached = (global as any).mongoose = { conn: null, promise: null };
-}
-
-async function dbConnect() {
-  if (cached.conn) {
-    return cached.conn;
-  }
-
-  if (!cached.promise) {
-    const opts = {
-      bufferCommands: false,
-    };
-
-    cached.promise = mongoose.connect(MONGODB_URI as string, opts).then((mongoose) => {
-      console.log("Mongodb connected successfully");
-      return mongoose;
-    });
-  }
-
+export async function dbConnect() {
   try {
-    cached.conn = await cached.promise;
-  } catch (e) {
-    cached.promise = null;
-    throw e;
+    if (!process.env.MONGODB_URI) return
+    await mongoose.connect(process.env.MONGODB_URI)
+    console.log('Connected Successfull🟢')
+  } catch (error: any) {
+    throw new Error('Failed to connect: ',error)
   }
-
-  return cached.conn;
 }
-
-export default dbConnect;
