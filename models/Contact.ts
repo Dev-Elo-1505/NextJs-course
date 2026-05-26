@@ -4,7 +4,7 @@ export interface IContact {
   name: string;
   email: string;
   message: string;
-  status: 'pending' | 'approved' | 'rejected'
+  status: 'pending' | 'resolved'
 }
 
 const ContactSchema = new mongoose.Schema<IContact>({
