@@ -9,3 +9,5 @@ export async function dbConnect() {
     throw new Error('Failed to connect: ',error)
   }
 }
+
+export default dbConnect;
